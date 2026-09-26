@@ -137,7 +137,7 @@ export function AppShell({ user, children }: { user: AuthUser; children: ReactNo
     <div className="flex min-h-screen bg-background">
       <aside className={cn("sticky top-0 hidden h-screen shrink-0 flex-col border-r border-sidebar-border bg-sidebar transition-[width] duration-200 lg:flex", collapsed ? "w-[68px]" : "w-[248px]")}>
         <div className={cn("flex h-14 items-center border-b border-sidebar-border px-4", collapsed && "justify-center px-0")}>
-          <Link to="/dashboard"><Logo compact={collapsed} /></Link>
+          <Link to="/dashboard"><Logo compact={collapsed} inverse /></Link>
         </div>
         <NavList collapsed={collapsed} />
         <button onClick={() => setCollapsed((c) => !c)} className="flex h-11 items-center justify-center gap-2 border-t border-sidebar-border text-xs text-muted-foreground hover:text-foreground">
@@ -147,7 +147,7 @@ export function AppShell({ user, children }: { user: AuthUser; children: ReactNo
 
       <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
         <SheetContent side="left" className="flex w-[260px] flex-col bg-sidebar p-0">
-          <div className="flex h-14 items-center border-b border-sidebar-border px-4"><Logo /></div>
+          <div className="flex h-14 items-center border-b border-sidebar-border px-4"><Logo inverse /></div>
           <NavList onNavigate={() => setMobileOpen(false)} />
         </SheetContent>
       </Sheet>
