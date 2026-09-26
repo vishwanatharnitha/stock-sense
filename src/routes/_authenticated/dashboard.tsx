@@ -7,7 +7,7 @@ import { OpStatusBadge, StockBadge } from "@/components/app/badges";
 import { useLookups } from "@/hooks/use-lookups";
 import { ledgerQuery, operationsQuery, profileQuery } from "@/services/inventory";
 import { fmtAgo, fmtDate, fmtMoney, fmtNum } from "@/lib/format";
-import { OP_META } from "@/lib/inventory-logic";
+import { OpLink } from "@/components/app/OpLink";
 import { cn } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -183,13 +183,13 @@ function Dashboard() {
         <Panel title="Pending operations" className="lg:col-span-4">
           <div className="divide-y divide-border">
             {open.slice(0, 6).map((o) => (
-              <Link key={o.id} to={`${OP_META[o.type as keyof typeof OP_META].path}/$id` as "/receipts/$id"} params={{ id: o.id }} className="flex items-center justify-between gap-3 px-5 py-3 hover:bg-foreground/[0.025]">
+              <OpLink key={o.id} type={o.type} id={o.id} className="flex items-center justify-between gap-3 px-5 py-3 hover:bg-foreground/[0.025]">
                 <div className="min-w-0">
                   <div className="num text-sm">{o.reference}</div>
                   <div className="truncate text-xs text-muted-foreground">{o.partner ?? `${L.locLabel(o.source_location_id)} → ${L.locLabel(o.dest_location_id)}`} · {fmtDate(o.scheduled_date)}</div>
                 </div>
                 <OpStatusBadge status={o.status} />
-              </Link>
+              </OpLink>
             ))}
             {!open.length && <EmptyState title="Nothing pending" hint="All operations are completed." />}
           </div>
