@@ -10,10 +10,10 @@ import { supabase } from "@/integrations/supabase/client";
 export type OpType = "receipt" | "delivery" | "transfer";
 export type OpStatus = "draft" | "waiting" | "ready" | "done" | "canceled";
 
-async function run<T>(p: PromiseLike<{ data: T | null; error: unknown }>): Promise<T> {
+async function run<R extends { data: unknown; error: unknown }>(p: PromiseLike<R>): Promise<NonNullable<R["data"]>> {
   const { data, error } = await p;
   if (error) throw error;
-  return data as T;
+  return data as NonNullable<R["data"]>;
 }
 
 // ---------- Reads ----------
