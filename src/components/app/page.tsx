@@ -19,7 +19,7 @@ export function PageHeader({
         {eyebrow && (
           <div className="mb-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">{eyebrow}</div>
         )}
-        <h1 className="text-2xl font-semibold tracking-tight text-foreground sm:text-[28px]">{title}</h1>
+        <h1 className="font-mono text-2xl font-semibold text-foreground sm:text-[28px]">{title}</h1>
         {description && <p className="mt-1.5 max-w-2xl text-sm text-muted-foreground">{description}</p>}
       </div>
       {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
@@ -32,7 +32,7 @@ export function Panel({ className, children, title, action }: { className?: stri
     <section className={cn("panel", className)}>
       {title && (
         <header className="flex items-center justify-between border-b border-border px-5 py-3.5">
-          <h2 className="text-sm font-medium text-foreground">{title}</h2>
+          <h2 className="font-mono text-sm font-medium text-foreground">{title}</h2>
           {action}
         </header>
       )}

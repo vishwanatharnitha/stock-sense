@@ -18,7 +18,7 @@ export function Logo({ className, compact }: { className?: string; compact?: boo
     <div className={cn("flex items-center gap-2.5", className)}>
       <LogoMark />
       {!compact && (
-        <span className="text-[15px] font-semibold tracking-tight text-foreground">
+        <span className="font-mono text-[15px] font-semibold text-foreground">
           Stock<span className="text-primary">Sense</span>
         </span>
       )}
