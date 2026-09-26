@@ -15,4 +15,5 @@
 - Receipts, deliveries and transfers share one `operations` + `operation_lines` model with a `type` column — one workflow, one validator, less duplicated logic.
 - UI reads/writes only via `src/services/inventory.ts` (query options + mutations); pure derivations live in `src/lib/inventory-logic.ts` — keeps pages thin and data access in one place.
 - Single-company workspace: every signed-in user shares inventory data (RLS `to authenticated`) — matches a team inventory tool.
-- Dark-only design system in `src/styles.css`; accent is lime `--primary`; use `panel`, `num`, `grid-bg` utilities — consistent enterprise look.
+- Light forest-and-mint design system in `src/styles.css`, with JetBrains Mono headings and Work Sans body; use `panel`, `num`, `grid-bg` utilities — keeps the selected presentation consistent.
+- Public stock demo is a self-contained in-memory simulation and never writes inventory data — protects real stock while allowing visitors to explore the movement flow.
