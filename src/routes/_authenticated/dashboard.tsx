@@ -125,10 +125,6 @@ function Dashboard() {
               across <span className="text-foreground">{inv.filter((p) => p.total > 0).length}</span> products in stock · {L.locations.length} locations
             </div>
 
-       <section className="mt-10 border-t border-border pt-8">
-         <div className="mb-5 flex flex-wrap items-end justify-between gap-3"><div><p className="font-mono text-xs uppercase text-primary">Explore without changing stock</p><h2 className="mt-2 font-mono text-xl font-semibold">See how a product moves</h2></div><p className="max-w-md text-sm text-muted-foreground">A sample receipt, transfer and delivery, separate from your workspace.</p></div>
-         <StockDemo compact />
-       </section>
             <div className="mt-6 flex items-center gap-6 border-t border-border pt-4 text-sm">
               <div><div className="text-xs text-muted-foreground">Inventory value</div><div className="num mt-0.5 text-primary">{fmtMoney(value)}</div></div>
               <div><div className="text-xs text-muted-foreground">Catalog</div><div className="num mt-0.5">{inv.length} SKUs</div></div>
@@ -145,6 +141,11 @@ function Dashboard() {
           <Kpi to="/ledger" icon={SlidersHorizontal} label="Movements logged" value={(ledger.data ?? []).length} hint="in stock ledger" />
         </div>
       </div>
+
+       <section className="mt-10 border-t border-border pt-8">
+         <div className="mb-5 flex flex-wrap items-end justify-between gap-3"><div><p className="font-mono text-xs uppercase text-primary">Explore without changing stock</p><h2 className="mt-2 font-mono text-xl font-semibold">See how a product moves</h2></div><p className="max-w-md text-sm text-muted-foreground">A sample receipt, transfer and delivery, separate from your workspace.</p></div>
+         <StockDemo compact />
+       </section>
 
       <div className="mt-4 grid gap-4 lg:grid-cols-12">
         <Panel title="Stock distribution by location" className="lg:col-span-8" action={<span className="text-xs text-muted-foreground">units</span>}>
