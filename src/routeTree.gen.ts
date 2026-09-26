@@ -14,7 +14,14 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as AuthenticatedAdjustmentsRouteImport } from './routes/_authenticated/adjustments'
+import { Route as AuthenticatedCategoriesRouteImport } from './routes/_authenticated/categories'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedLedgerRouteImport } from './routes/_authenticated/ledger'
+import { Route as AuthenticatedLocationsRouteImport } from './routes/_authenticated/locations'
+import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
+import { Route as AuthenticatedReorderingRouteImport } from './routes/_authenticated/reordering'
+import { Route as AuthenticatedWarehousesRouteImport } from './routes/_authenticated/warehouses'
 import { Route as AuthenticatedDeliveriesIndexRouteImport } from './routes/_authenticated/deliveries.index'
 import { Route as AuthenticatedDeliveriesIdRouteImport } from './routes/_authenticated/deliveries.$id'
 import { Route as AuthenticatedProductsIndexRouteImport } from './routes/_authenticated/products.index'
@@ -48,9 +55,45 @@ const ResetPasswordRoute = ResetPasswordRouteImport.update({
   path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAdjustmentsRoute =
+  AuthenticatedAdjustmentsRouteImport.update({
+    id: '/adjustments',
+    path: '/adjustments',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedCategoriesRoute = AuthenticatedCategoriesRouteImport.update({
+  id: '/categories',
+  path: '/categories',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedLedgerRoute = AuthenticatedLedgerRouteImport.update({
+  id: '/ledger',
+  path: '/ledger',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedLocationsRoute = AuthenticatedLocationsRouteImport.update({
+  id: '/locations',
+  path: '/locations',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedReorderingRoute = AuthenticatedReorderingRouteImport.update({
+  id: '/reordering',
+  path: '/reordering',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedWarehousesRoute = AuthenticatedWarehousesRouteImport.update({
+  id: '/warehouses',
+  path: '/warehouses',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedDeliveriesIndexRoute =
@@ -105,7 +148,14 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/adjustments': typeof AuthenticatedAdjustmentsRoute
+  '/categories': typeof AuthenticatedCategoriesRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/ledger': typeof AuthenticatedLedgerRoute
+  '/locations': typeof AuthenticatedLocationsRoute
+  '/profile': typeof AuthenticatedProfileRoute
+  '/reordering': typeof AuthenticatedReorderingRoute
+  '/warehouses': typeof AuthenticatedWarehousesRoute
   '/deliveries/$id': typeof AuthenticatedDeliveriesIdRoute
   '/products/$id': typeof AuthenticatedProductsIdRoute
   '/receipts/$id': typeof AuthenticatedReceiptsIdRoute
@@ -120,7 +170,14 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/adjustments': typeof AuthenticatedAdjustmentsRoute
+  '/categories': typeof AuthenticatedCategoriesRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/ledger': typeof AuthenticatedLedgerRoute
+  '/locations': typeof AuthenticatedLocationsRoute
+  '/profile': typeof AuthenticatedProfileRoute
+  '/reordering': typeof AuthenticatedReorderingRoute
+  '/warehouses': typeof AuthenticatedWarehousesRoute
   '/deliveries/$id': typeof AuthenticatedDeliveriesIdRoute
   '/products/$id': typeof AuthenticatedProductsIdRoute
   '/receipts/$id': typeof AuthenticatedReceiptsIdRoute
@@ -137,7 +194,14 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/_authenticated/adjustments': typeof AuthenticatedAdjustmentsRoute
+  '/_authenticated/categories': typeof AuthenticatedCategoriesRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/ledger': typeof AuthenticatedLedgerRoute
+  '/_authenticated/locations': typeof AuthenticatedLocationsRoute
+  '/_authenticated/profile': typeof AuthenticatedProfileRoute
+  '/_authenticated/reordering': typeof AuthenticatedReorderingRoute
+  '/_authenticated/warehouses': typeof AuthenticatedWarehousesRoute
   '/_authenticated/deliveries/$id': typeof AuthenticatedDeliveriesIdRoute
   '/_authenticated/products/$id': typeof AuthenticatedProductsIdRoute
   '/_authenticated/receipts/$id': typeof AuthenticatedReceiptsIdRoute
@@ -154,7 +218,14 @@ export interface FileRouteTypes {
     | '/auth'
     | '/forgot-password'
     | '/reset-password'
+    | '/adjustments'
+    | '/categories'
     | '/dashboard'
+    | '/ledger'
+    | '/locations'
+    | '/profile'
+    | '/reordering'
+    | '/warehouses'
     | '/deliveries/$id'
     | '/products/$id'
     | '/receipts/$id'
@@ -169,7 +240,14 @@ export interface FileRouteTypes {
     | '/auth'
     | '/forgot-password'
     | '/reset-password'
+    | '/adjustments'
+    | '/categories'
     | '/dashboard'
+    | '/ledger'
+    | '/locations'
+    | '/profile'
+    | '/reordering'
+    | '/warehouses'
     | '/deliveries/$id'
     | '/products/$id'
     | '/receipts/$id'
@@ -185,7 +263,14 @@ export interface FileRouteTypes {
     | '/auth'
     | '/forgot-password'
     | '/reset-password'
+    | '/_authenticated/adjustments'
+    | '/_authenticated/categories'
     | '/_authenticated/dashboard'
+    | '/_authenticated/ledger'
+    | '/_authenticated/locations'
+    | '/_authenticated/profile'
+    | '/_authenticated/reordering'
+    | '/_authenticated/warehouses'
     | '/_authenticated/deliveries/$id'
     | '/_authenticated/products/$id'
     | '/_authenticated/receipts/$id'
@@ -241,11 +326,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/adjustments': {
+      id: '/_authenticated/adjustments'
+      path: '/adjustments'
+      fullPath: '/adjustments'
+      preLoaderRoute: typeof AuthenticatedAdjustmentsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/categories': {
+      id: '/_authenticated/categories'
+      path: '/categories'
+      fullPath: '/categories'
+      preLoaderRoute: typeof AuthenticatedCategoriesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/dashboard': {
       id: '/_authenticated/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/ledger': {
+      id: '/_authenticated/ledger'
+      path: '/ledger'
+      fullPath: '/ledger'
+      preLoaderRoute: typeof AuthenticatedLedgerRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/locations': {
+      id: '/_authenticated/locations'
+      path: '/locations'
+      fullPath: '/locations'
+      preLoaderRoute: typeof AuthenticatedLocationsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/profile': {
+      id: '/_authenticated/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AuthenticatedProfileRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/reordering': {
+      id: '/_authenticated/reordering'
+      path: '/reordering'
+      fullPath: '/reordering'
+      preLoaderRoute: typeof AuthenticatedReorderingRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/warehouses': {
+      id: '/_authenticated/warehouses'
+      path: '/warehouses'
+      fullPath: '/warehouses'
+      preLoaderRoute: typeof AuthenticatedWarehousesRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/deliveries/': {
@@ -308,7 +442,14 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdjustmentsRoute: typeof AuthenticatedAdjustmentsRoute
+  AuthenticatedCategoriesRoute: typeof AuthenticatedCategoriesRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedLedgerRoute: typeof AuthenticatedLedgerRoute
+  AuthenticatedLocationsRoute: typeof AuthenticatedLocationsRoute
+  AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
+  AuthenticatedReorderingRoute: typeof AuthenticatedReorderingRoute
+  AuthenticatedWarehousesRoute: typeof AuthenticatedWarehousesRoute
   AuthenticatedDeliveriesIdRoute: typeof AuthenticatedDeliveriesIdRoute
   AuthenticatedProductsIdRoute: typeof AuthenticatedProductsIdRoute
   AuthenticatedReceiptsIdRoute: typeof AuthenticatedReceiptsIdRoute
@@ -320,7 +461,14 @@ interface AuthenticatedRouteRouteChildren {
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdjustmentsRoute: AuthenticatedAdjustmentsRoute,
+  AuthenticatedCategoriesRoute: AuthenticatedCategoriesRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedLedgerRoute: AuthenticatedLedgerRoute,
+  AuthenticatedLocationsRoute: AuthenticatedLocationsRoute,
+  AuthenticatedProfileRoute: AuthenticatedProfileRoute,
+  AuthenticatedReorderingRoute: AuthenticatedReorderingRoute,
+  AuthenticatedWarehousesRoute: AuthenticatedWarehousesRoute,
   AuthenticatedDeliveriesIdRoute: AuthenticatedDeliveriesIdRoute,
   AuthenticatedProductsIdRoute: AuthenticatedProductsIdRoute,
   AuthenticatedReceiptsIdRoute: AuthenticatedReceiptsIdRoute,
