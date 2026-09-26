@@ -13,13 +13,13 @@ export function LogoMark({ className }: { className?: string }) {
   );
 }
 
-export function Logo({ className, compact }: { className?: string; compact?: boolean }) {
+export function Logo({ className, compact, inverse = false }: { className?: string; compact?: boolean; inverse?: boolean }) {
   return (
     <div className={cn("flex items-center gap-2.5", className)}>
       <LogoMark />
       {!compact && (
-        <span className="text-[15px] font-semibold tracking-tight text-foreground">
-          Stock<span className="text-primary">Sense</span>
+        <span className={cn("font-mono text-[15px] font-semibold", inverse ? "text-sidebar-accent-foreground" : "text-foreground")}>
+          Stock<span className={inverse ? "text-sidebar-primary" : "text-primary"}>Sense</span>
         </span>
       )}
     </div>
